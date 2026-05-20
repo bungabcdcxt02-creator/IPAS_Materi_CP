@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisi-Kisi IPAS PSKA – Kecamatan Cipayung</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & TOKENS ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:    #0d1117;
+  --ink2:   #3d4a5c;
+  --ink3:   #7a8799;
+  --paper:  #f5f7fa;
+  --white:  #ffffff;
+  --border: #e3e8ef;
+
+  /* topic colours */
+  --c-sains:    #0284c7;  --c-sains-bg:    #e0f2fe;
+  --c-geo:      #059669;  --c-geo-bg:      #d1fae5;
+  --c-bio:      #7c3aed;  --c-bio-bg:      #ede9fe;
+  --c-sejarah:  #dc2626;  --c-sejarah-bg:  #fee2e2;
+  --c-energi:   #d97706;  --c-energi-bg:   #fef3c7;
+  --c-gerak:    #db2777;  --c-gerak-bg:    #fce7f3;
+  --c-tatasurya:#0891b2;  --c-tatasurya-bg:#cffafe;
+
+  --radius: 16px;
+  --shadow: 0 2px 16px rgba(13,17,23,.08);
+  --shadow-hover: 0 8px 32px rgba(13,17,23,.14);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* ─── HERO ───────────────────────────────────────────── */
+.hero {
+  background: var(--ink);
+  color: var(--white);
+  padding: 56px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2,132,199,.3) 0%, transparent 65%);
+  top: -200px; right: -100px;
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,.25) 0%, transparent 65%);
+  bottom: -100px; left: 40px;
+  pointer-events: none;
+}
+.hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 99px;
+  padding: 5px 14px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #93c5fd;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(34px, 7vw, 66px);
+  line-height: 1.05;
+  font-weight: 900;
+  max-width: 700px;
+}
+.hero h1 em { font-style: italic; color: #60a5fa; }
+
+.hero-sub {
+  color: #94a3b8;
+  font-size: 15px; font-weight: 500;
+  margin-top: 14px;
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.hero-sub span { color: #e2e8f0; }
+.dot { opacity: .4; }
+
+.chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 30px;
+}
+.chip {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: #cbd5e1;
+  padding: 7px 15px; border-radius: 8px;
+  font-size: 12px; font-weight: 600;
+}
+.chip strong { color: #fff; }
+
+/* ─── MAIN SHELL ─────────────────────────────────────── */
+.shell { max-width: 900px; margin: -32px auto 64px; padding: 0 16px; position: relative; z-index: 2; }
+
+/* ─── SCORE SUMMARY ──────────────────────────────────── */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.sc {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px 12px;
+  text-align: center;
+  border-top: 3px solid var(--border);
+  transition: transform .2s;
+}
+.sc:hover { transform: translateY(-2px); }
+.sc .n { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 900; line-height: 1; margin-bottom: 3px; }
+.sc .l { font-size: 11px; font-weight: 600; color: var(--ink3); letter-spacing: .5px; }
+
+/* ─── PROGRESS ───────────────────────────────────────── */
+.prog-bar {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.prog-bar label { font-size: 13px; font-weight: 700; white-space: nowrap; color: var(--ink2); }
+.prog-track { flex: 1; min-width: 120px; height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.prog-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #0284c7, #7c3aed); border-radius: 99px; transition: width .5s; }
+.prog-count { font-size: 13px; font-weight: 800; color: #0284c7; white-space: nowrap; }
+
+/* ─── TOOLBAR ────────────────────────────────────────── */
+.toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; align-items: stretch; }
+
+.searchbox {
+  flex: 1; min-width: 220px;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 8px;
+  transition: border-color .2s;
+}
+.searchbox:focus-within { border-color: #0284c7; }
+.searchbox input {
+  flex: 1; border: none; outline: none;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink);
+  background: transparent;
+}
+.searchbox input::placeholder { color: #a0aec0; }
+
+.filt-group {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.filt-btn {
+  padding: 9px 16px; border-radius: 10px;
+  border: 2px solid var(--border); background: var(--white);
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700;
+  cursor: pointer; color: var(--ink3); transition: all .18s;
+  white-space: nowrap;
+}
+.filt-btn:hover { border-color: #0284c7; color: #0284c7; }
+.filt-btn.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+/* ─── SECTION DIVIDER ────────────────────────────────── */
+.sec-div {
+  display: flex; align-items: center; gap: 12px;
+  margin: 28px 0 16px;
+}
+.sec-div span {
+  font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 700; white-space: nowrap;
+}
+.sec-div::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ─── CARD ───────────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 12px;
+  border-left: 5px solid var(--border);
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+
+.card-head {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  gap: 14px; align-items: center;
+  cursor: pointer; user-select: none;
+}
+.card-ico {
+  width: 46px; height: 46px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.card-meta {}
+.card-tp { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px; opacity: .65; }
+.card-title { font-size: 15px; font-weight: 700; line-height: 1.35; }
+.card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+.kelas-tag { padding: 3px 9px; border-radius: 99px; font-size: 10px; font-weight: 700; }
+.chevron { font-size: 14px; opacity: .35; transition: transform .3s; }
+.card.open .chevron { transform: rotate(180deg); opacity: .7; }
+
+.card-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+.card.open .card-body { max-height: 1800px; }
+.card-content { padding: 0 20px 22px; }
+
+/* ─── CONTENT ATOMS ──────────────────────────────────── */
+.desc {
+  font-size: 14px; line-height: 1.75; color: var(--ink2);
+  margin-bottom: 14px;
+}
+
+.info-box {
+  border-radius: 10px; padding: 14px 16px;
+  font-size: 13.5px; line-height: 1.7; color: var(--ink2);
+  margin-bottom: 14px;
+  border-left: 4px solid;
+}
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.tag {
+  padding: 4px 11px; border-radius: 8px;
+  font-size: 12px; font-weight: 600;
+}
+
+.fact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px; margin-bottom: 14px;
+}
+.fact {
+  background: var(--paper); border-radius: 10px; padding: 12px 14px;
+}
+.fact-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; opacity: .55; }
+.fact-val { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+.item-list { list-style: none; margin-bottom: 14px; }
+.item-list li {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  font-size: 13.5px; line-height: 1.6; color: var(--ink2);
+}
+.item-list li:last-child { border-bottom: none; }
+.item-list li::before { content: '▸'; color: #0284c7; flex-shrink: 0; margin-top: 1px; font-size: 12px; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+@media(max-width:480px) { .two-col { grid-template-columns: 1fr; } }
+.col-box { background: var(--paper); border-radius: 10px; padding: 12px 14px; }
+.col-box h4 { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.col-box p { font-size: 13px; color: var(--ink2); line-height: 1.6; }
+
+/* soal table */
+.soal-tbl { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 14px; border-radius: 10px; overflow: hidden; }
+.soal-tbl thead tr { background: var(--ink); color: #fff; }
+.soal-tbl th { padding: 8px 12px; text-align: left; font-weight: 600; font-size: 11px; letter-spacing: .5px; }
+.soal-tbl td { padding: 7px 12px; border-bottom: 1px solid var(--border); color: var(--ink2); vertical-align: top; }
+.soal-tbl tr:last-child td { border-bottom: none; }
+.soal-tbl tbody tr:hover td { background: var(--paper); }
+.soal-tbl td:first-child { text-align: center; width: 48px; }
+.soal-tbl td:nth-child(2) { width: 56px; }
+
+.bt { display: inline-block; padding: 3px 9px; border-radius: 7px; font-size: 11px; font-weight: 700; }
+.bt-BS  { background: #dbeafe; color: #1e40af; }
+.bt-PG  { background: #dcfce7; color: #166534; }
+.bt-PGK { background: #ede9fe; color: #5b21b6; }
+.bt-MJ  { background: #fef3c7; color: #92400e; }
+.bt-IS  { background: #fce7f3; color: #9d174d; }
+.bt-UT  { background: #ffedd5; color: #9a3412; }
+
+.lv { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+.lv-L1 { background: #ccfbf1; color: #0f766e; }
+.lv-L2 { background: #fef9c3; color: #854d0e; }
+.lv-L3 { background: #ffe4e6; color: #9f1239; }
+
+.divider { height: 1px; background: var(--border); margin: 14px 0; }
+
+.highlight-box {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 13px 15px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--ink2);
+  margin-bottom: 14px;
+}
+.highlight-box strong { color: var(--ink); }
+
+/* ─── EMPTY ──────────────────────────────────────────── */
+.empty { text-align: center; padding: 56px 24px; color: var(--ink3); font-size: 15px; font-weight: 600; }
+
+footer { text-align: center; padding: 24px; font-size: 12px; color: var(--ink3); }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="pill">📚 Bahan Ujian Resmi</div>
+    <h1>Kisi-Kisi <em>IPAS</em><br>PSKA Kelas 5 &amp; 6</h1>
+    <div class="hero-sub">
+      <span>Kecamatan Cipayung</span>
+      <span class="dot">·</span>
+      <span>Sekolah Dasar</span>
+      <span class="dot">·</span>
+      <span>Tahun Pelajaran 2025/2026</span>
+    </div>
+    <div class="chips">
+      <div class="chip">📋 <strong>25 Soal</strong></div>
+      <div class="chip">⏱ <strong>120 Menit</strong></div>
+      <div class="chip">🔬 Sains · Geografi · Sejarah</div>
+      <div class="chip">🏫 Kelas 5 &amp; 6</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ SHELL ════════════════════════════════════════════ -->
+<main class="shell">
+
+  <!-- Score strip -->
+  <div class="score-grid">
+    <div class="sc" style="border-top-color:#1e40af"><div class="n" style="color:#1e40af">5</div><div class="l">Soal B-S</div></div>
+    <div class="sc" style="border-top-color:#166534"><div class="n" style="color:#166534">5</div><div class="l">Soal PG</div></div>
+    <div class="sc" style="border-top-color:#5b21b6"><div class="n" style="color:#5b21b6">4</div><div class="l">Soal PGK</div></div>
+    <div class="sc" style="border-top-color:#92400e"><div class="n" style="color:#92400e">4</div><div class="l">Soal MJ</div></div>
+    <div class="sc" style="border-top-color:#9d174d"><div class="n" style="color:#9d174d">4</div><div class="l">Soal Isian</div></div>
+    <div class="sc" style="border-top-color:#9a3412"><div class="n" style="color:#9a3412">3</div><div class="l">Uraian</div></div>
+  </div>
+
+  <!-- Progress -->
+  <div class="prog-bar">
+    <label>📖 Progress belajar</label>
+    <div class="prog-track"><div class="prog-fill" id="pf"></div></div>
+    <span class="prog-count" id="pc">0 / 21 topik</span>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="searchbox">
+      <span style="font-size:16px;opacity:.5">🔍</span>
+      <input id="q" type="text" placeholder="Cari materi… (contoh: rangka, proklamasi, tata surya)">
+    </div>
+    <div class="filt-group">
+      <button class="filt-btn on" data-f="all">Semua</button>
+      <button class="filt-btn" data-f="5">Kelas 5</button>
+      <button class="filt-btn" data-f="6">Kelas 6</button>
+      <button class="filt-btn" data-f="sains">🔬 Sains</button>
+      <button class="filt-btn" data-f="geo">🌍 Geo</button>
+      <button class="filt-btn" data-f="bio">🧬 Bio</button>
+      <button class="filt-btn" data-f="energi">⚡ Energi</button>
+      <button class="filt-btn" data-f="gerak">🦴 Gerak</button>
+      <button class="filt-btn" data-f="tatasurya">🪐 Tata Surya</button>
+      <button class="filt-btn" data-f="sejarah">📜 Sejarah</button>
+    </div>
+  </div>
+
+  <!-- ════ KELAS 5 ════════════════════════════════════════ -->
+  <div class="sec-div"><span>🟢 Kelas 5</span></div>
+
+  <!-- 1. Pancaindra – Bentuk -->
+  <div class="card" data-kelas="5" data-cat="bio" id="c1" style="border-left-color:var(--c-bio)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-bio-bg)">👁️</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-bio)">TP 4.1 · Bio</div>
+        <div class="card-title">Bagian-Bagian Panca Indra (Mata &amp; Telinga)</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-bio-bg);color:var(--c-bio)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Panca indra adalah lima alat indra manusia untuk mengenali lingkungan. Untuk ujian ini, fokus pada <strong>mata</strong> dan <strong>telinga</strong> — bagian-bagian serta fungsinya.</p>
+
+      <div class="two-col">
+        <div class="col-box">
+          <h4 style="color:var(--c-bio)">👁️ Bagian-Bagian Mata</h4>
+          <p><strong>Kornea</strong> – pelindung bening di depan mata<br>
+          <strong>Iris</strong> – selaput berwarna yang mengatur cahaya<br>
+          <strong>Pupil</strong> – lubang tengah iris, mengatur besar kecil cahaya masuk<br>
+          <strong>Lensa</strong> – memfokuskan bayangan ke retina<br>
+          <strong>Retina</strong> – layar penerima bayangan<br>
+          <strong>Saraf optik</strong> – meneruskan sinyal ke otak<br>
+          <strong>Sklera</strong> – lapisan putih keras pelindung bola mata</p>
+        </div>
+        <div class="col-box">
+          <h4 style="color:var(--c-bio)">👂 Bagian-Bagian Telinga</h4>
+          <p><strong>Daun telinga</strong> – menangkap gelombang suara<br>
+          <strong>Saluran telinga</strong> – meneruskan suara ke gendang<br>
+          <strong>Gendang telinga</strong> – bergetar saat terkena suara<br>
+          <strong>Tulang pendengaran</strong> (martil, landasan, sanggurdi) – memperkuat getaran<br>
+          <strong>Rumah siput (koklea)</strong> – mengubah getaran jadi sinyal saraf<br>
+          <strong>Saraf pendengaran</strong> – mengirim sinyal ke otak</p>
+        </div>
+      </div>
+      <div class="info-box" style="background:#f3e8ff;border-color:var(--c-bio)">
+        💡 <strong>Tips ujian:</strong> Soal B-S no.1 berupa <em>ilustrasi telinga</em> — kenali setiap bagian dari ciri-cirinya (misal: koklea berbentuk spiral, gendang telinga tipis dan bergetar).
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><span class="bt bt-BS">B-S</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan bagian-bagian telinga berdasarkan ciri-cirinya dari ilustrasi</td></tr>
+          <tr><td>2</td><td><span class="bt bt-BS">B-S</span></td><td><span class="lv lv-L1">L1</span></td><td>Menyebutkan fungsi bagian mata dari gambar</td></tr>
+          <tr><td>6</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L3">L3</span></td><td>Menemukan bagian telinga/mata dengan fungsinya dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 2. Sifat cahaya & bunyi -->
+  <div class="card" data-kelas="5" data-cat="sains" id="c2" style="border-left-color:var(--c-sains)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-sains-bg)">💡</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-sains)">TP 1.2 · Sains</div>
+        <div class="card-title">Sifat-Sifat Cahaya &amp; Bunyi</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-sains-bg);color:var(--c-sains)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Cahaya dan bunyi adalah dua jenis gelombang yang memiliki sifat khas. Sifat-sifat ini dapat diamati melalui percobaan sederhana.</p>
+
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-sains)">Merambat Lurus</div><div class="fact-val">Cahaya berjalan lurus dari sumbernya</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sains)">Dipantulkan</div><div class="fact-val">Cahaya memantul dari permukaan mengkilap (cermin)</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sains)">Dibiaskan</div><div class="fact-val">Cahaya berbelok saat melewati medium berbeda (air↔udara)</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sains)">Dispersi</div><div class="fact-val">Cahaya putih terurai menjadi pelangi saat melewati prisma</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sains)">Merambat melalui ruang hampa</div><div class="fact-val">Bunyi TIDAK bisa, cahaya BISA merambat di vakum</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sains)">Bunyi butuh medium</div><div class="fact-val">Bunyi merambat lewat padat, cair, gas — tidak bisa di vakum</div></div>
+      </div>
+      <div class="info-box" style="background:#e0f2fe;border-color:var(--c-sains)">
+        🔬 <strong>Soal B-S no.3</strong> menyajikan gambar percobaan — identifikasi sifat cahaya yang terjadi (misal: pensil tampak patah di air = <em>pembiasan</em>; sendok terlihat di cermin = <em>pemantulan</em>).
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>3</td><td><span class="bt bt-BS">B-S</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan sifat cahaya dari gambar percobaan sederhana</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 3. Merawat mata & telinga -->
+  <div class="card" data-kelas="5" data-cat="bio" id="c3" style="border-left-color:var(--c-bio)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-bio-bg)">🩺</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-bio)">TP 1.4 · Bio</div>
+        <div class="card-title">Cara Merawat Kesehatan Mata &amp; Telinga</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-bio-bg);color:var(--c-bio)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Merawat indra sejak dini sangat penting agar tetap berfungsi optimal hingga dewasa.</p>
+      <div class="two-col">
+        <div class="col-box">
+          <h4 style="color:var(--c-bio)">👁️ Menjaga Kesehatan Mata</h4>
+          <p>• Baca dengan jarak 30 cm<br>
+          • Jangan membaca di tempat gelap<br>
+          • Kurangi screen-time berlebihan<br>
+          • Konsumsi makanan kaya vitamin A (wortel, bayam)<br>
+          • Periksa mata rutin ke dokter<br>
+          • Gunakan kacamata pelindung saat diperlukan</p>
+        </div>
+        <div class="col-box">
+          <h4 style="color:var(--c-bio)">👂 Menjaga Kesehatan Telinga</h4>
+          <p>• Jangan mengorek telinga dengan benda keras<br>
+          • Hindari musik terlalu keras (>85 dB)<br>
+          • Keringkan telinga setelah berenang<br>
+          • Jangan biarkan air masuk terlalu dalam<br>
+          • Periksa ke dokter THT jika ada keluhan</p>
+        </div>
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>7</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L2">L2</span></td><td>Memperkirakan cara menjaga kesehatan mata/telinga dari ilustrasi</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 4. Ekosistem & Rantai Makanan -->
+  <div class="card" data-kelas="5" data-cat="bio" id="c4" style="border-left-color:var(--c-bio)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-bio-bg)">🌾</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-bio)">TP 2.1 · Bio</div>
+        <div class="card-title">Ekosistem, Rantai Makanan &amp; Jaring-Jaring Makanan</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-bio-bg);color:var(--c-bio)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Ekosistem adalah kesatuan makhluk hidup dengan lingkungannya yang saling berinteraksi. Ketika populasi satu organisme berubah, seluruh rantai makanan ikut terdampak.</p>
+      <ul class="item-list">
+        <li><strong>Produsen</strong> – tumbuhan hijau yang membuat makanan sendiri (fotosintesis). Contoh: padi, rumput.</li>
+        <li><strong>Konsumen I</strong> – herbivora, pemakan produsen. Contoh: tikus, belalang, sapi.</li>
+        <li><strong>Konsumen II</strong> – karnivora, pemakan konsumen I. Contoh: katak, ular, elang.</li>
+        <li><strong>Pengurai (Dekomposer)</strong> – bakteri & jamur yang menguraikan sisa organisme menjadi mineral.</li>
+      </ul>
+      <div class="info-box" style="background:#f3e8ff;border-color:var(--c-bio)">
+        🌾 <strong>Ekosistem sawah</strong> — Contoh rantai makanan:<br>
+        <strong>Padi → Tikus → Ular → Elang</strong><br>
+        Jika populasi ular <em>menurun</em>: tikus meledak → padi rusak → elang kelaparan. Inilah <em>dampak penurunan populasi</em> yang ditanyakan soal PG no.8.
+      </div>
+      <p class="desc"><strong>Jaring-jaring makanan</strong> = kumpulan banyak rantai makanan yang saling bersilangan dalam satu ekosistem. Lebih kompleks dan lebih stabil.</p>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>8</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L3">L3</span></td><td>Menemukan dampak penurunan populasi dalam ekosistem sawah dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 5. Organ Pencernaan -->
+  <div class="card" data-kelas="5" data-cat="bio" id="c5" style="border-left-color:var(--c-bio)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-bio-bg)">🫁</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-bio)">TP 4.1 · Bio</div>
+        <div class="card-title">Organ Pencernaan Manusia &amp; Prosesnya</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-bio-bg);color:var(--c-bio)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Sistem pencernaan memproses makanan menjadi zat gizi yang bisa diserap tubuh. Proses ini melibatkan pencernaan <em>mekanis</em> (fisik) dan <em>kimiawi</em> (enzim).</p>
+      <ul class="item-list">
+        <li><strong>Mulut</strong> – mengunyah (mekanis) + enzim amilase (kimiawi) → memecah pati</li>
+        <li><strong>Kerongkongan (Esofagus)</strong> – menyalurkan makanan ke lambung via gerakan peristaltik</li>
+        <li><strong>Lambung</strong> – mengaduk + asam lambung (HCl) membunuh bakteri & enzim pepsin memecah protein</li>
+        <li><strong>Usus Halus</strong> – penyerapan utama nutrisi; dibantu empedu (lemak) & pankreas (enzim)</li>
+        <li><strong>Usus Besar</strong> – menyerap air; sisa makanan dibentuk menjadi feses</li>
+        <li><strong>Rektum &amp; Anus</strong> – penyimpanan sementara & pengeluaran feses</li>
+      </ul>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>17</td><td><span class="bt bt-PGK">PGK</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan bagian pencernaan berdasarkan fungsinya dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 6. Organ Pernapasan & TBC -->
+  <div class="card" data-kelas="5" data-cat="bio" id="c6" style="border-left-color:var(--c-bio)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-bio-bg)">🫁</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-bio)">TP 4.2 · Bio</div>
+        <div class="card-title">Organ Pernapasan &amp; Gangguan Pernapasan (TBC)</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-bio-bg);color:var(--c-bio)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Sistem pernapasan memasok oksigen ke darah dan membuang karbon dioksida. Berbagai penyakit dapat mengganggu fungsi ini.</p>
+      <ul class="item-list">
+        <li><strong>Rongga hidung</strong> – menyaring, menghangatkan, dan melembabkan udara</li>
+        <li><strong>Tenggorokan (Faring &amp; Laring)</strong> – jalur udara ke trakea</li>
+        <li><strong>Trakea</strong> – tabung udara menuju paru-paru</li>
+        <li><strong>Bronkus &amp; Bronkiolus</strong> – percabangan menuju alveolus</li>
+        <li><strong>Alveolus</strong> – kantung udara kecil tempat pertukaran O₂ dan CO₂</li>
+        <li><strong>Paru-paru</strong> – organ utama pernapasan</li>
+      </ul>
+      <div class="info-box" style="background:#f3e8ff;border-color:var(--c-bio)">
+        🦠 <strong>Tuberkulosis (TBC)</strong> disebabkan bakteri <em>Mycobacterium tuberculosis</em>. Bakteri ini menyerang <strong>jaringan paru-paru</strong>, membentuk bintil-bintil (tuberkel) sehingga paru-paru tidak dapat berfungsi optimal. Gejala: batuk berkepanjangan, batuk darah, sesak napas, berkeringat malam. Penularan: droplet (percikan dahak) di udara.
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>18</td><td><span class="bt bt-PGK">PGK</span></td><td><span class="lv lv-L2">L2</span></td><td>Memperkirakan gangguan pernapasan pada penyakit TBC dari wacana</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 7. Warisan Budaya & Akulturasi -->
+  <div class="card" data-kelas="5" data-cat="sejarah" id="c7" style="border-left-color:var(--c-sejarah)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-sejarah-bg)">🏛️</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-sejarah)">TP 2.2 · Sejarah &amp; Budaya</div>
+        <div class="card-title">Akulturasi &amp; Warisan Budaya Indonesia</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-sejarah-bg);color:var(--c-sejarah)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc"><strong>Akulturasi</strong> adalah perpaduan dua kebudayaan atau lebih yang menghasilkan budaya baru, namun masing-masing unsur asli tetap ada.</p>
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Masjid Menara Kudus</div><div class="fact-val">Akulturasi Hindu-Islam; menara berbentuk candi</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Wayang Kulit</div><div class="fact-val">Akulturasi Hindu-Jawa; cerita Mahabharata &amp; Ramayana dikemas budaya lokal</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Batik</div><div class="fact-val">Warisan budaya Jawa, diakui UNESCO 2009</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Candi Borobudur</div><div class="fact-val">Warisan budaya Buddha abad ke-9, Jawa Tengah</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Tari Saman</div><div class="fact-val">Warisan budaya Gayo, Aceh; tari kelompok khas Islam</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Angklung</div><div class="fact-val">Warisan Sunda (Jawa Barat), diakui UNESCO 2010</div></div>
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>10</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L1">L1</span></td><td>Menyebutkan asal warisan budaya dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 8. Kerusakan Lingkungan -->
+  <div class="card" data-kelas="5" data-cat="geo" id="c8" style="border-left-color:var(--c-geo)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-geo-bg)">🌳</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-geo)">TP 2.5 · Geografi &amp; Lingkungan</div>
+        <div class="card-title">Kerusakan Lingkungan Akibat Aktivitas Manusia</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-geo-bg);color:var(--c-geo)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Aktivitas manusia yang tidak bertanggung jawab dapat merusak lingkungan secara serius dan berdampak jangka panjang.</p>
+      <ul class="item-list">
+        <li><strong>Penebangan hutan (deforestasi)</strong> – erosi tanah, banjir, hilangnya habitat satwa</li>
+        <li><strong>Pembakaran hutan</strong> – polusi udara, kabut asap, meningkatkan CO₂</li>
+        <li><strong>Pembuangan limbah industri</strong> – pencemaran sungai dan laut, kematian ikan</li>
+        <li><strong>Penambangan berlebihan</strong> – kerusakan struktur tanah, longsor</li>
+        <li><strong>Penggunaan pestisida berlebihan</strong> – meracuni tanah, air, dan organisme non-target</li>
+        <li><strong>Perluasan permukiman</strong> – berkurangnya lahan hijau, banjir, penurunan air tanah</li>
+      </ul>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>19</td><td><span class="bt bt-PGK">PGK</span></td><td><span class="lv lv-L1">L1</span></td><td>Mengidentifikasi kerusakan lingkungan akibat aktivitas manusia dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 9. Peta & Komponen -->
+  <div class="card" data-kelas="5" data-cat="geo" id="c9" style="border-left-color:var(--c-geo)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-geo-bg)">🗺️</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-geo)">TP 4.20 · Geografi</div>
+        <div class="card-title">Peta &amp; Komponen-Komponennya</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-geo-bg);color:var(--c-geo)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Peta adalah gambaran permukaan bumi pada bidang datar dengan skala tertentu. Komponen peta yang <strong>harus selalu ada</strong>:</p>
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">Judul Peta</div><div class="fact-val">Menjelaskan isi/wilayah yang digambarkan</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">Skala</div><div class="fact-val">Perbandingan jarak di peta dengan jarak nyata</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">Legenda</div><div class="fact-val">Penjelasan simbol-simbol dalam peta</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">Petunjuk Arah (Mata Angin)</div><div class="fact-val">Biasanya tanda panah utara (N)</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">Garis Astronomis</div><div class="fact-val">Garis lintang &amp; bujur untuk menentukan letak</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">Inset</div><div class="fact-val">Peta kecil penjelas letak wilayah dalam konteks lebih luas</div></div>
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>4</td><td><span class="bt bt-BS">B-S</span></td><td><span class="lv lv-L2">L2</span></td><td>Menunjukkan komponen yang harus ada dalam peta dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 10. Letak Geografis & Astronomis -->
+  <div class="card" data-kelas="5" data-cat="geo" id="c10" style="border-left-color:var(--c-geo)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-geo-bg)">🌐</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-geo)">TP 4.22 + 1.5 · Geografi</div>
+        <div class="card-title">Letak Geografis &amp; Astronomis Indonesia</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-geo-bg);color:var(--c-geo)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Indonesia memiliki posisi strategis secara geografis dan astronomis yang memberikan dampak besar pada iklim, budaya, dan ekonomi.</p>
+      <div class="two-col">
+        <div class="col-box">
+          <h4 style="color:var(--c-geo)">📍 Letak Astronomis</h4>
+          <p><strong>Garis Lintang:</strong> 6°LU – 11°LS<br>
+          <strong>Garis Bujur:</strong> 95°BT – 141°BT<br>
+          → Terletak di zona <em>tropis</em>, beriklim panas sepanjang tahun, curah hujan tinggi, memiliki 3 zona waktu (WIB, WITA, WIT)</p>
+        </div>
+        <div class="col-box">
+          <h4 style="color:var(--c-geo)">🌍 Letak Geografis</h4>
+          <p>Di antara dua benua: <strong>Asia &amp; Australia</strong><br>
+          Di antara dua samudra: <strong>Hindia &amp; Pasifik</strong><br>
+          → Jalur perdagangan internasional<br>
+          → Beragam pengaruh budaya asing<br>
+          → Potensi tsunami dan gempa bumi</p>
+        </div>
+      </div>
+      <div class="info-box" style="background:#d1fae5;border-color:var(--c-geo)">
+        🔑 <strong>Akibat letak geografis Indonesia:</strong> sering dilalui pedagang dari Asia, Arab, India, Eropa → terjadi akulturasi budaya → kekayaan budaya Indonesia sangat beragam. Juga berdampak pada masuknya bangsa asing (kolonialisme).
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>9</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L1">L1</span></td><td>Mengidentifikasi akibat letak Indonesia secara geografis dari ilustrasi</td></tr>
+          <tr><td>5</td><td><span class="bt bt-BS">B-S</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan letak geografis Indonesia dan akibatnya dari ilustrasi</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 11. Iklim & Perubahan -->
+  <div class="card" data-kelas="5" data-cat="geo" id="c11" style="border-left-color:var(--c-geo)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-geo-bg)">🌦️</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-geo)">TP 4.33 · Geografi</div>
+        <div class="card-title">Iklim &amp; Perubahannya (Musim Panas &amp; Hujan)</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-geo-bg);color:var(--c-geo)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Iklim adalah kondisi cuaca rata-rata suatu wilayah dalam jangka panjang. Indonesia memiliki iklim tropis dengan dua musim utama.</p>
+      <div class="two-col">
+        <div class="col-box">
+          <h4 style="color:#d97706">☀️ Musim Kemarau (Panas)</h4>
+          <p>• Sedikit/tidak ada hujan<br>
+          • Tanah kering dan retak<br>
+          • Kekeringan, kebakaran hutan<br>
+          • Sumber air berkurang<br>
+          • Gagal panen<br>
+          • Angin dari Australia (kering)</p>
+        </div>
+        <div class="col-box">
+          <h4 style="color:var(--c-sains)">🌧️ Musim Penghujan</h4>
+          <p>• Curah hujan tinggi<br>
+          • Banjir dan tanah longsor<br>
+          • Hama tanaman meningkat<br>
+          • Air tanah terisi kembali<br>
+          • Cocok untuk pertanian<br>
+          • Angin dari Asia (lembab)</p>
+        </div>
+      </div>
+      <div class="info-box" style="background:#d1fae5;border-color:var(--c-geo)">
+        🌡️ <strong>Perubahan Iklim Global</strong> memperparah kedua musim: kemarau makin panjang dan panas, hujan makin lebat dan tak menentu. Penyebab utama: emisi gas rumah kaca (CO₂, metana) dari industri dan kendaraan.
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>16</td><td><span class="bt bt-PGK">PGK</span></td><td><span class="lv lv-L3">L3</span></td><td>Menunjukkan peristiwa yang terjadi pada musim panas &amp; penghujan beserta fenomenanya dari tabel</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 12. Aktivitas Ekonomi -->
+  <div class="card" data-kelas="5" data-cat="geo" id="c12" style="border-left-color:var(--c-geo)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-geo-bg)">🏔️</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-geo)">TP 3.1 · Ekonomi &amp; Geografi</div>
+        <div class="card-title">Jenis-Jenis Usaha Ekonomi di Dataran Tinggi</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-geo-bg);color:var(--c-geo)">Kelas 5</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Aktivitas ekonomi masyarakat dipengaruhi kondisi geografis wilayahnya. Setiap relief daratan memiliki potensi ekonomi berbeda.</p>
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">🏔️ Dataran Tinggi</div><div class="fact-val">Perkebunan teh, kopi, sayuran; peternakan; pariwisata alam</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">🌾 Dataran Rendah</div><div class="fact-val">Pertanian padi, industri, perdagangan, peternakan</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">🏖️ Pesisir/Pantai</div><div class="fact-val">Nelayan, budidaya ikan/tambak, pariwisata, perdagangan</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-geo)">🌲 Hutan</div><div class="fact-val">Kehutanan, ekowisata, perburuan terbatas</div></div>
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>20</td><td><span class="bt bt-PGK">PGK</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan aktivitas ekonomi yang ada di dataran tinggi dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- ════ KELAS 6 ════════════════════════════════════════ -->
+  <div class="sec-div" style="margin-top:36px"><span>🔵 Kelas 6</span></div>
+
+  <!-- 13. Sistem Gerak -->
+  <div class="card" data-kelas="6" data-cat="gerak" id="c13" style="border-left-color:var(--c-gerak)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-gerak-bg)">🦴</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-gerak)">TP 1.1 + 1.3 + 1.5 · Sistem Gerak</div>
+        <div class="card-title">Sistem Gerak: Rangka, Sendi &amp; Penyakitnya</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-gerak-bg);color:var(--c-gerak)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Sistem gerak manusia terdiri dari rangka (tulang), sendi, dan otot. Ketiganya bekerja sama memungkinkan tubuh bergerak.</p>
+
+      <p class="desc"><strong>🦴 Rangka Anggota Gerak Bawah:</strong> tulang panggul → tulang paha (femur) → tulang tempurung lutut (patela) → tulang kering (tibia) & betis (fibula) → tulang pergelangan kaki → tulang kaki.</p>
+
+      <div class="info-box" style="background:#fce7f3;border-color:var(--c-gerak)">
+        🔗 <strong>Jenis-Jenis Sendi:</strong><br>
+        <strong>Sendi engsel</strong> – bergerak satu arah (siku, lutut, ruas jari / telapak tangan)<br>
+        <strong>Sendi peluru</strong> – bergerak ke segala arah (bahu, panggul)<br>
+        <strong>Sendi pelana</strong> – bergerak dua arah (ibu jari tangan)<br>
+        <strong>Sendi putar</strong> – bergerak berputar (leher/atlas-axis)<br>
+        <strong>Sendi geser</strong> – bergerak menggeser (ruas tulang belakang)<br>
+        💡 <em>Sendi pada ruas telapak tangan = sendi engsel</em> (ditanyakan di soal IS no.26)
+      </div>
+
+      <p class="desc"><strong>🏥 Cara Memelihara Kesehatan Tulang:</strong></p>
+      <ul class="item-list">
+        <li>Konsumsi kalsium (susu, ikan, brokoli) dan vitamin D (sinar matahari pagi)</li>
+        <li>Olahraga rutin untuk memperkuat massa tulang</li>
+        <li>Hindari postur tubuh yang salah (membungkuk kronis)</li>
+        <li>Jauhi rokok dan alkohol yang melemahkan tulang</li>
+        <li>Konsumsi fosfor (kacang-kacangan, biji-bijian)</li>
+      </ul>
+
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>21</td><td><span class="bt bt-MJ">MJ</span></td><td><span class="lv lv-L3">L3</span></td><td>Menghubungkan bagian rangka gerak sesuai fungsinya dari gambar</td></tr>
+          <tr><td>11</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L2">L2</span></td><td>Menentukan sendi rangka gerak anggota bawah dari gambar</td></tr>
+          <tr><td>26</td><td><span class="bt bt-IS">IS</span></td><td><span class="lv lv-L1">L1</span></td><td>Menyebutkan sendi berdasarkan ilustrasi aktivitas menggunakan ruas telapak tangan</td></tr>
+          <tr><td>31</td><td><span class="bt bt-UT">UT</span></td><td><span class="lv lv-L3">L3</span></td><td>Menemukan cara memelihara kesehatan tulang</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 14. Energi Terbarukan -->
+  <div class="card" data-kelas="6" data-cat="energi" id="c14" style="border-left-color:var(--c-energi)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-energi-bg)">⚡</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-energi)">TP 1.16 + 1.19 · Energi</div>
+        <div class="card-title">Energi Terbarukan &amp; Upaya Hemat Energi</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-energi-bg);color:var(--c-energi)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc"><strong>Energi terbarukan</strong> adalah energi dari sumber yang tidak habis dan dapat dipulihkan secara alami. Berbeda dengan bahan bakar fosil yang terbatas.</p>
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-energi)">☀️ Energi Surya</div><div class="fact-val">Panel surya mengubah sinar matahari jadi listrik. Sumber: Matahari</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-energi)">💨 Energi Angin</div><div class="fact-val">Kincir angin (turbin) menghasilkan listrik dari gerakan angin</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-energi)">💧 Energi Air (Hidro)</div><div class="fact-val">PLTA mengubah aliran air menjadi listrik</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-energi)">🌋 Panas Bumi (Geotermal)</div><div class="fact-val">Panas dari dalam bumi untuk pembangkit listrik &amp; pemanas</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-energi)">🌱 Bioenergi</div><div class="fact-val">Energi dari bahan organik (biomassa, biogas, bioetanol)</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-energi)">🌊 Energi Laut/Ombak</div><div class="fact-val">Memanfaatkan pasang surut & gelombang laut</div></div>
+      </div>
+      <div class="info-box" style="background:#fef3c7;border-color:var(--c-energi)">
+        💡 <strong>Upaya Hemat Energi di Rumah:</strong> matikan lampu saat tidak digunakan, gunakan lampu LED, cabut charger yang tidak dipakai, gunakan AC seperlunya, manfaatkan cahaya alami, gunakan kendaraan umum/bersepeda.<br><br>
+        🌍 <strong>Jika dibiasakan menggunakan energi alternatif:</strong> emisi gas rumah kaca berkurang → memperlambat perubahan iklim → udara lebih bersih → bumi lebih lestari.
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>22</td><td><span class="bt bt-MJ">MJ</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan energi terbarukan yang digunakan dari gambar kegiatan manusia</td></tr>
+          <tr><td>14</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L3">L3</span></td><td>Memprediksi kemanfaatan hemat listrik di rumah dari gambar</td></tr>
+          <tr><td>32</td><td><span class="bt bt-UT">UT</span></td><td><span class="lv lv-L2">L2</span></td><td>Memperkirakan upaya penghematan energi dari ilustrasi</td></tr>
+          <tr><td>12</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L3">L3</span></td><td>Memprediksi kemungkinan jika dibiasakan menggunakan energi alternatif</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 15. Rotasi & Revolusi -->
+  <div class="card" data-kelas="6" data-cat="tatasurya" id="c15" style="border-left-color:var(--c-tatasurya)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-tatasurya-bg)">🌍</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-tatasurya)">TP 2.13 · Tata Surya</div>
+        <div class="card-title">Rotasi &amp; Revolusi Bumi — Zona Waktu &amp; Rasi Bintang</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-tatasurya-bg);color:var(--c-tatasurya)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="two-col">
+        <div class="col-box">
+          <h4 style="color:var(--c-tatasurya)">🔄 Rotasi Bumi</h4>
+          <p>Perputaran bumi pada <strong>porosnya sendiri</strong><br>
+          Waktu: ±24 jam (1 hari)<br>
+          Arah: barat → timur<br>
+          <strong>Akibat:</strong> siang dan malam, terbit-terbenam matahari, <em>perbedaan zona waktu</em> (setiap 15° bujur = 1 jam)</p>
+        </div>
+        <div class="col-box">
+          <h4 style="color:var(--c-tatasurya)">🌐 Revolusi Bumi</h4>
+          <p>Perputaran bumi <strong>mengelilingi matahari</strong><br>
+          Waktu: ±365¼ hari (1 tahun)<br>
+          <strong>Akibat:</strong> pergantian musim, tahun kabisat, gerak semu tahunan matahari, <em>perubahan rasi bintang</em> yang terlihat tiap malam</p>
+        </div>
+      </div>
+      <div class="info-box" style="background:#cffafe;border-color:var(--c-tatasurya)">
+        ⭐ <strong>Rasi Bintang berubah setiap malam</strong> karena bumi berevolusi mengelilingi matahari — posisi bumi berubah setiap hari, sehingga sudut pandang ke bintang-bintang di langit juga berubah. (Soal IS no.27)<br><br>
+        🕐 <strong>Zona Waktu Indonesia</strong> terjadi karena rotasi bumi menyebabkan perbedaan waktu di setiap bujur. Indonesia membentang dari 95°–141°BT → 3 zona: <strong>WIB</strong> (UTC+7), <strong>WITA</strong> (UTC+8), <strong>WIT</strong> (UTC+9). (Soal IS no.28)
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>27</td><td><span class="bt bt-IS">IS</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan penyebab perubahan rasi bintang pada malam hari dari gambar</td></tr>
+          <tr><td>28</td><td><span class="bt bt-IS">IS</span></td><td><span class="lv lv-L2">L2</span></td><td>Menyimpulkan penyebab terjadinya pembagian zona waktu dari ilustrasi</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 16. Planet & Tata Surya -->
+  <div class="card" data-kelas="6" data-cat="tatasurya" id="c16" style="border-left-color:var(--c-tatasurya)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-tatasurya-bg)">🪐</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-tatasurya)">TP 2.14 · Tata Surya</div>
+        <div class="card-title">Planet-Planet dalam Sistem Tata Surya</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-tatasurya-bg);color:var(--c-tatasurya)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Tata surya terdiri dari Matahari dan 8 planet yang mengelilinginya. Urutan dari terdekat ke terjauh:</p>
+      <div class="highlight-box"><strong>♾️ Merkurius → Venus → Bumi → Mars → Jupiter → Saturnus → Uranus → Neptunus</strong><br><small style="opacity:.6">Hafalan: <em>"Me Ve Bu Ma Ju Sa U Ne"</em></small></div>
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">☿ Merkurius</div><div class="fact-val">Planet terkecil, terdekat matahari, tidak punya bulan</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">♀ Venus</div><div class="fact-val">Planet terpanas (efek rumah kaca), paling terang di langit malam</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">🌍 Bumi</div><div class="fact-val">Satu-satunya planet berpenghuni; punya 1 bulan</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">♂ Mars</div><div class="fact-val">Planet merah; punya gunung tertinggi (Olympus Mons)</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">♃ Jupiter</div><div class="fact-val">Planet terbesar; punya Bintik Merah Besar (badai raksasa)</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">♄ Saturnus</div><div class="fact-val">Punya cincin indah dari es dan debu; massa paling ringan relatif</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">⛢ Uranus</div><div class="fact-val">Berputar miring hampir 90°; berwarna biru-hijau</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-tatasurya)">♆ Neptunus</div><div class="fact-val">Planet terjauh; berwarna biru tua; angin terkencang</div></div>
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>23</td><td><span class="bt bt-MJ">MJ</span></td><td><span class="lv lv-L2">L2</span></td><td>Menunjukkan nama planet dengan ciri-cirinya</td></tr>
+          <tr><td>33</td><td><span class="bt bt-UT">UT</span></td><td><span class="lv lv-L2">L2</span></td><td>Menjelaskan ciri-ciri planet sesuai anak panah dari gambar</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 17. Bangsa Asing masuk Indonesia -->
+  <div class="card" data-kelas="6" data-cat="sejarah" id="c17" style="border-left-color:var(--c-sejarah)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-sejarah-bg)">⚓</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-sejarah)">TP 1.6 · Sejarah</div>
+        <div class="card-title">Masuknya Bangsa Asing ke Indonesia</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-sejarah-bg);color:var(--c-sejarah)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Bangsa-bangsa Eropa datang ke Indonesia (Nusantara) pada abad ke-15–16 didorong oleh <em>Gold, Glory, Gospel</em> — mencari kekayaan, kejayaan, dan menyebarkan agama.</p>
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">🇵🇹 Portugis</div><div class="fact-val">Pertama tiba di Maluku (1512) — wilayah pertama didatangi. Tujuan: rempah-rempah (cengkeh &amp; pala)</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">🇪🇸 Spanyol</div><div class="fact-val">Datang ke Maluku (1521) via Filipina</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">🇳🇱 Belanda</div><div class="fact-val">Tiba 1596 di Banten; mendirikan VOC (1602); menjajah 3,5 abad</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">🇬🇧 Inggris</div><div class="fact-val">Berdagang, sempat menguasai sebelum diserahkan ke Belanda</div></div>
+      </div>
+      <div class="info-box" style="background:#fee2e2;border-color:var(--c-sejarah)">
+        📍 <strong>Tujuan Kedatangan Bangsa Asing:</strong><br>
+        1. Mencari rempah-rempah (komoditas mahal di Eropa)<br>
+        2. Mencari wilayah jajahan untuk dikuasai<br>
+        3. Menyebarkan agama Kristen (misi Portugis &amp; Spanyol)<br>
+        4. Membuka jalur perdagangan baru<br>
+        5. Mendapatkan keuntungan sebesar-besarnya (monopoli)
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>24</td><td><span class="bt bt-MJ">MJ</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan wilayah yang pertama kali didatangi bangsa asing dari gambar</td></tr>
+          <tr><td>34</td><td><span class="bt bt-UT">UT</span></td><td><span class="lv lv-L2">L2</span></td><td>Menjelaskan tujuan kedatangan bangsa asing ke Indonesia</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 18. Perjuangan Kemerdekaan -->
+  <div class="card" data-kelas="6" data-cat="sejarah" id="c18" style="border-left-color:var(--c-sejarah)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-sejarah-bg)">🏳️</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-sejarah)">TP 1.8 · Sejarah</div>
+        <div class="card-title">Perjuangan Menuju Kemerdekaan &amp; Proklamasi</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-sejarah-bg);color:var(--c-sejarah)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Kemerdekaan Indonesia diproklamasikan pada <strong>17 Agustus 1945</strong> setelah perjuangan panjang melawan penjajahan Belanda dan Jepang.</p>
+      <div class="fact-grid">
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Ir. Soekarno</div><div class="fact-val">Pembaca teks proklamasi; Presiden pertama RI</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Drs. Moh. Hatta</div><div class="fact-val">Menandatangani proklamasi; Wakil Presiden pertama RI</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Laksamana Maeda</div><div class="fact-val">Perwira Jepang; rumahnya dijadikan tempat menyusun naskah proklamasi</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Sayuti Melik</div><div class="fact-val">Mengetik naskah proklamasi</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Ahmad Soebardjo</div><div class="fact-val">Membantu merumuskan naskah proklamasi</div></div>
+        <div class="fact"><div class="fact-label" style="color:var(--c-sejarah)">Fatmawati</div><div class="fact-val">Menjahit Bendera Merah Putih pertama</div></div>
+      </div>
+      <div class="info-box" style="background:#fee2e2;border-color:var(--c-sejarah)">
+        🏠 <strong>Soal IS no.29:</strong> Tokoh dari Jepang yang rumahnya digunakan untuk menyusun naskah proklamasi adalah <strong>Laksamana Tadashi Maeda</strong>, berlokasi di Jalan Imam Bonjol No. 1, Jakarta.
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>25</td><td><span class="bt bt-MJ">MJ</span></td><td><span class="lv lv-L1">L1</span></td><td>Menjodohkan tokoh perjuangan dengan peranannya dari gambar</td></tr>
+          <tr><td>29</td><td><span class="bt bt-IS">IS</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan tokoh dari Jepang yang rumahnya dipakai menyusun naskah proklamasi</td></tr>
+          <tr><td>15</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L3">L3</span></td><td>Menentukan tokoh-tokoh pada saat proklamasi dan peranannya</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 19. Mempertahankan Kemerdekaan -->
+  <div class="card" data-kelas="6" data-cat="sejarah" id="c19" style="border-left-color:var(--c-sejarah)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-sejarah-bg)">🤝</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-sejarah)">TP 1.9 · Sejarah</div>
+        <div class="card-title">Mempertahankan Kemerdekaan Indonesia</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-sejarah-bg);color:var(--c-sejarah)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Setelah proklamasi, Indonesia harus berjuang mempertahankan kemerdekaan dari ancaman penjajahan kembali, melalui jalur <em>fisik (militer)</em> dan <em>diplomasi</em>.</p>
+      <div class="two-col">
+        <div class="col-box">
+          <h4 style="color:var(--c-sejarah)">⚔️ Perjuangan Fisik</h4>
+          <p>• Pertempuran Surabaya (10 Nov 1945)<br>
+          • Pertempuran Ambarawa<br>
+          • Bandung Lautan Api<br>
+          • Pertempuran Medan Area<br>
+          • Agresi Militer Belanda I &amp; II</p>
+        </div>
+        <div class="col-box">
+          <h4 style="color:var(--c-sejarah)">🕊️ Perjuangan Diplomasi</h4>
+          <p>• <strong>Perjanjian Linggarjati</strong> (1947)<br>
+          • <strong>Perjanjian Renville</strong> (1948)<br>
+          • <strong>Perjanjian Roem-Royen</strong> (1949)<br>
+          • <strong>KMB (Konferensi Meja Bundar)</strong> (1949) → Belanda mengakui kedaulatan RI</p>
+        </div>
+      </div>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>30</td><td><span class="bt bt-IS">IS</span></td><td><span class="lv lv-L2">L2</span></td><td>Menunjukkan upaya yang dilakukan untuk mempertahankan kemerdekaan Indonesia</td></tr>
+          <tr><td>13</td><td><span class="bt bt-PG">PG</span></td><td><span class="lv lv-L2">L2</span></td><td>Menjelaskan upaya mempertahankan kemerdekaan secara diplomasi dari tabel</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- 20. Meneladani Pahlawan -->
+  <div class="card" data-kelas="6" data-cat="sejarah" id="c20" style="border-left-color:var(--c-sejarah)">
+    <div class="card-head" onclick="tog(this)">
+      <div class="card-ico" style="background:var(--c-sejarah-bg)">🌟</div>
+      <div class="card-meta">
+        <div class="card-tp" style="color:var(--c-sejarah)">TP 1.10 · Sejarah &amp; Karakter</div>
+        <div class="card-title">Meneladani Perjuangan Pahlawan dalam Kehidupan Sehari-hari</div>
+      </div>
+      <div class="card-right">
+        <span class="kelas-tag" style="background:var(--c-sejarah-bg);color:var(--c-sejarah)">Kelas 6</span>
+        <span class="chevron">▼</span>
+      </div>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p class="desc">Menghargai jasa pahlawan tidak harus dengan cara besar — tindakan nyata sehari-hari juga merupakan bentuk penghargaan yang bermakna.</p>
+      <ul class="item-list">
+        <li>Belajar dengan sungguh-sungguh untuk memajukan bangsa</li>
+        <li>Menjaga persatuan dan menghindari perpecahan antar teman</li>
+        <li>Mengikuti upacara bendera dengan khidmat</li>
+        <li>Mengunjungi museum atau tugu peringatan pahlawan</li>
+        <li>Mendoakan para pahlawan yang telah gugur</li>
+        <li>Tidak membeda-bedakan teman (menerapkan Bhinneka Tunggal Ika)</li>
+        <li>Menjaga fasilitas umum dan lingkungan</li>
+        <li>Berani membela kebenaran dan kejujuran</li>
+      </ul>
+      <table class="soal-tbl">
+        <thead><tr><th>No.</th><th>Bentuk</th><th>Level</th><th>Indikator</th></tr></thead>
+        <tbody>
+          <tr><td>35</td><td><span class="bt bt-UT">UT</span></td><td><span class="lv lv-L2">L2</span></td><td>Memperkirakan upaya yang dilakukan untuk menghargai jasa para pahlawan</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div class="empty" id="empty" style="display:none">😔 Tidak ada materi yang cocok. Coba kata kunci lain.</div>
+
+</main>
+
+<footer>Kisi-Kisi IPAS PSKA · Kecamatan Cipayung · Sekolah Dasar · TP 2025/2026 · 25 Soal · 120 Menit</footer>
+
+<script>
+  const cards = document.querySelectorAll('.card[data-kelas]');
+  const emptyEl = document.getElementById('empty');
+  const pfEl = document.getElementById('pf');
+  const pcEl = document.getElementById('pc');
+  const total = cards.length;
+  const opened = new Set();
+
+  function tog(header) {
+    const card = header.closest('.card');
+    const wasOpen = card.classList.contains('open');
+    card.classList.toggle('open', !wasOpen);
+    if (!wasOpen) {
+      opened.add(card.id);
+      pfEl.style.width = (opened.size / total * 100) + '%';
+      pcEl.textContent = opened.size + ' / ' + total + ' topik';
+    }
+  }
+
+  let activeFilter = 'all';
+  let query = '';
+
+  function applyFilter() {
+    let vis = 0;
+    cards.forEach(c => {
+      const kelasOk = activeFilter === 'all' || c.dataset.kelas === activeFilter || c.dataset.cat === activeFilter;
+      const textOk = !query || c.textContent.toLowerCase().includes(query);
+      const show = kelasOk && textOk;
+      c.style.display = show ? '' : 'none';
+      if (show) vis++;
+    });
+    // Section dividers
+    document.querySelectorAll('.sec-div').forEach(d => d.style.display = '');
+    emptyEl.style.display = vis === 0 ? 'block' : 'none';
+  }
+
+  document.querySelectorAll('.filt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filt-btn').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      activeFilter = btn.dataset.f;
+      applyFilter();
+    });
+  });
+
+  document.getElementById('q').addEventListener('input', e => {
+    query = e.target.value.toLowerCase().trim();
+    applyFilter();
+  });
+
+  // Entrance animation
+  cards.forEach((c, i) => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(14px)';
+    setTimeout(() => {
+      c.style.transition = 'opacity .35s ease, transform .35s ease';
+      c.style.opacity = '1';
+      c.style.transform = 'none';
+    }, 60 + i * 50);
+  });
+</script>
+</body>
+</html>
